@@ -1,0 +1,254 @@
+.triangulo img{
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.game{
+    display: flex;
+    align-items: center;
+ justify-content: center;
+
+ gap: 30px;
+}
+
+
+.game img{
+    width: 80px;
+    height: 80px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    object-position: center;
+    object-fit: cover;
+}
+
+.game .piedra{
+    width: 130px;
+    height: 130px;
+    background: white;
+   border: 34px solid #ef233c ;
+ 
+   cursor: pointer;
+    border-radius: 50%; /* Hace que el elemento sea un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.game .piedra .fondo{
+    background: #ffffff;
+    width: 150px;
+    height: 85px;
+    
+    border-radius: 60%;
+    display: flex;
+    align-items: center;
+}
+
+
+.game .tijera{
+    width: 130px;
+    height: 130px;
+    background: white;
+   border: 34px solid #ffc300 ;
+ 
+   cursor: pointer;
+    border-radius: 50%; /* Hace que el elemento sea un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game .tijera .fondo{
+    background: #ffffff;
+    width: 150px;
+    height: 85px;
+    
+    border-radius: 60%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.game .papel{
+    width: 125px;
+    height: 125px;
+    cursor: pointer;
+   border: 34px solid #003566 ;
+   background: white;
+
+    border-radius: 50%; /* Hace que el elemento sea un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+
+
+
+
+.game .papel .fondo{
+    background: #ffffff;
+    width: 150px;
+    height: 85px;
+
+    border-radius: 60%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+.game .piedra .fondo img,.game .papel .fondo img,.game .tijera .fondo img{
+
+    width: 40px;
+   
+    height: 40px;
+    object-fit: contain;
+    object-position: center;
+
+}
+
+
+.h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 32px;
+}
+
+
+@media (min-width:768px){
+    
+    .game .piedra{
+        width: 250px;
+        height: 250px;
+        
+       border: 50px solid #ef233c ;
+     
+       cursor: pointer;
+        border-radius: 50%; /* Hace que el elemento sea un círculo */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+
+    .game .piedra .fondo{
+        background: #ffffff;
+        width: 100%;
+        height: 100%;
+        
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+
+
+
+
+    .game .piedra .fondo img,.game .papel .fondo img,.game .tijera .fondo img{
+
+        width: 90px;
+       
+        height: 90px;
+        object-fit: contain;
+        object-position: center;
+    
+    }
+
+
+    /* tijera*/
+
+
+    .game .tijera{
+        width: 250px;
+        height: 250px;
+        
+       border: 50px solid #ffc300 ;
+     
+       cursor: pointer;
+        border-radius: 50%; /* Hace que el elemento sea un círculo */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .game .tijera .fondo{
+        background: #ffffff;
+        width: 100%;
+        height: 100%;
+        
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    
+    /* papel */ 
+.game .papel{
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+   border: 50px solid #003566 ;
+ 
+
+    border-radius: 50%; /* Hace que el elemento sea un círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+
+
+
+
+
+.game .papel .fondo{
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 50px;
+}
+
+
+.boton {
+    background: white;
+    display: block;
+    border-radius: 10px;
+    padding: 12px 40px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+.opcion{
+pointer-events: none;
+}

@@ -1,0 +1,73 @@
+.pick {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.result{
+  
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.empate{
+   color: white;
+   font-size: 50px;
+
+   font-weight: bold;
+
+}
+
+.result .results{
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+
+.result{
+    display: flex;
+  flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+
+.boton{
+    background: white;
+    display: block;
+    border-radius: 10px;
+    padding: 14px 0px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.boton a{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: red;
+}
+@media (min-width:768px){
+    .boton{
+        background: white;
+      display: block;
+       
+        border-radius: 10px;
+        padding: 12px 40px;
+    }
+    
+    .boton a{
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 3px;
+        color: red;
+    }
+}
+
+
+

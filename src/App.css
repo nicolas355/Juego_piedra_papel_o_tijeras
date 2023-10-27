@@ -1,0 +1,118 @@
+/* globales*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: radial-gradient(
+    ellipse at center,  
+    hsl(214, 47%, 23%), 
+    hsl(237, 49%, 15%)  );
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+
+
+
+
+/* Score*/
+section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.contenedor{
+  
+  border: 2px solid rgba(255, 255, 255, 0.363);
+  border-radius: 20px;
+height: 150px;
+  margin: 100px 0px;
+  max-width: 630px;
+  width: 100%;
+  display: flex;
+  padding: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+.score{
+  background: white;
+  max-width: 135px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+h2{
+  font-size: 20px;
+  color:hsl(229, 64%, 46%) ;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+h3{
+color: hsl(229, 25%, 31%);
+font-size: 50px;
+
+}
+
+.logo img{
+  width: 150px;
+}
+
+
+/*Start */
+
+div .btn{
+
+  display: block;
+  text-align: center;
+  margin: 50px 0px;
+}
+
+div .btn .start{
+  background: white;
+  padding: 20px 50px;
+  width: 100%;
+  text-decoration: none;
+  color: rgb(16, 88, 196);
+  font-size: 30px;
+}
+
+h1{
+  text-align: center;
+  padding: 20px 0px;
+  color: white;
+}
+
+.contenedor_center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fondo img {
+  max-width: 100px;
+}
+
+
+/*seleccion*/
+
+.h2{
+  text-align: center;
+margin-bottom: 30px;
+  color: white;
+  font-size: 50px;
+
+}
+
+.contenedor_center{
+  background: linear-gradient(90deg, rgba(2, 0, 36, 0.788) 0%, rgba(9, 9, 121, 0.61) 35%, rgba(0, 213, 255, 0.356) 100%),url('../src/assets//img/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
