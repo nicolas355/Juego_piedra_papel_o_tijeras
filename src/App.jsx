@@ -20,8 +20,8 @@ function App() {
     <BrowserRouter>
     <Routes>
 
-      <Route path='/' element={ <Start/>} />
-      <Route path='/seleccion' element={ <Seleccion/>} />
+
+      <Route path='/' element={ <Seleccion/>} />
       <Route path='/resultado/:eleccion' element={ <Resultado/>} />
   
     </Routes>

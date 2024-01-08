@@ -4,19 +4,18 @@ import Papel from "../components/Papel";
 import "../style/juego.css";
 import Tijera from "../components/Tijera";
 import Piedra from "../components/Piedra";
-import { useState, useEffect,useContext  } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ResultadoContext } from "../components/ResultadoContext";
 import Puntos from "../components/Puntos";
 
-
-
 const Resultado = () => {
-
+  const [isChoosing, setIsChoosing] = useState(false);
+  const [resultado, setResultado] = useState("");
 
   const { score, setScore } = useContext(ResultadoContext);
 
   const [maquina, setMaquina] = useState(null); // Inicializar maquina con null
-
+  const [animate, setAnimate] = useState(false);
   const params = useParams();
 
   const reglas = {
@@ -39,43 +38,63 @@ const Resultado = () => {
   };
 
   const comprobar = () => {
-    if(reglas[params.eleccion][maquina]){
-      setScore(prevScore => prevScore + 1);
+    if (reglas[params.eleccion][maquina]) {
+      setScore((prevScore) => prevScore );
     }
   };
 
-  
   useEffect(() => {
     const eleccionPC = () => {
       const opciones = ["piedra", "papel", "tijera"]; // arreglo
-      const randomOption = Math.floor(Math.random() * opciones.length); // 1 2 3
-      return opciones[randomOption]; // opciones[1], opciones[2], opciones[3] de forma aleatoria
+      const randomOption = Math.floor(Math.random() * opciones.length); // 0, 1, 2 (índices de las opciones)
+  
+      return opciones[randomOption]; // opciones[randomOption] de forma aleatoria
     };
   
-    const newMaquina = eleccionPC();
+    const newMaquina = eleccionPC(); // elección random
+  
     setMaquina(newMaquina); // actualizar maquina en el estado
-  }, [params.eleccion]);
+  }, [params.eleccion, animate]);
   
   useEffect(() => {
-    comprobar();
+    setIsChoosing(true); // Activa la animación
+    const timeout = setTimeout(() => {
+      setIsChoosing(false); // Desactiva la animación después de 1 segundo
+      comprobar(); // Comprobar el resultado después de finalizar la animación
+      
+      if (maquina === params.eleccion) {
+        setResultado("Empate");
+      } else if (reglas[params.eleccion][maquina]) {
+        setResultado("Ganaste");
+      } else {
+        setResultado("Perdiste");
+      }
+    }, 1000); // Tiempo 
+  
+    return () => clearTimeout(timeout); // Limpiar el timeout si el componente se desmonta antes de que se complete
+  }, [params.eleccion, maquina]);
+
+  useEffect(() => {
+    if (reglas[params.eleccion][maquina]) {
+      const timeout = setTimeout(() => {
+        setScore((prevScore) => prevScore + 1); // Aumenta el puntaje después de finalizar la animación
+      }, 1000); 
+  
+      return () => clearTimeout(timeout); // Limpiar el timeout si el componente se desmonta antes de que se complete
+    }
   }, [maquina]);
 
-// evitar que se pueda elegir en la pagina de resultado
+  // evitar que se pueda elegir en la pagina de resultado
 
-
-
-
-
-return (
+  return (
     <div>
-
-    <Puntos score= {score} />
+      <Puntos score={score} />
       <div className="pick">
         <div className="user">
           <h2 className="h2">Tú </h2>
 
           <div className="game">
-            {params.eleccion === "papel" ? <Papel  /> : ""}
+            {params.eleccion === "papel" ? <Papel /> : ""}
             {params.eleccion === "tijera" ? <Tijera /> : ""}
             {params.eleccion === "piedra" ? <Piedra /> : ""}
           </div>
@@ -85,41 +104,45 @@ return (
           {/* verificamos si en el objeto reglas la opcion del user y de la maquina  
        (reglas['tijera','papel'] */}
 
-          <p className="results">
-            {reglas[params.eleccion][maquina]
-              ? "Ganaste"
-              : reglas[params.eleccion][maquina] !== undefined
-              ? "Perdiste"
-              : ""}
-          </p>
 
-          <p className="empate">
-            {maquina === params.eleccion ? "EMPATE" : ""}
-          </p>
+
+<p className="results">{resultado}</p>
+
+
+     
 
           <div className="boton">
             <Link
               to={{
-                pathname: "/seleccion",
+                pathname: "/",
               }}
             >
               Jugar Otra vez
             </Link>
-
-         
-
-
           </div>
-        
         </div>
 
         <div className="machine">
           <h2 className="h2">Maquina</h2>
 
           <div className="game">
-            {maquina === "papel" ? <Papel   /> : ""}
-            {maquina === "tijera" ? <Tijera /> : ""}
-            {maquina === "piedra" ? <Piedra /> : ""}
+            
+          {isChoosing ? (
+  
+      <p className="maquinaEleccion">La máquina está eligiendo...</p>
+
+    ) : (
+    
+      <>
+        {maquina === "papel" ? <Papel /> : ""}
+        {maquina === "tijera" ? <Tijera /> : ""}
+        {maquina === "piedra" ? <Piedra /> : ""}
+      </>
+    )}
+
+
+
+
           </div>
         </div>
       </div>
